@@ -7,6 +7,7 @@ const ProfileController = require('./controllers/ProfileController')
 
 
 routes.get('/', ProfileController.index)
+routes.post('/', ProfileController.search)
 
 
 module.exports = routes;
