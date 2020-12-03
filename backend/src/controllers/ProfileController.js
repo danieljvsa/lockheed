@@ -16,19 +16,22 @@ module.exports = {
         let {obj} = req.body
         
         if(!obj){
-            obj = ''
+           obj = ''
+            return res.json("Não colocou nada na barra de pesquisa!")
         }else{
-            obj = obj
+            
+
+            Contract.findAll({
+                where: {
+                    obj: { [Op.like]: '%' + obj + '%' }
+                }
+            }).then(contracts => res.status(200).json(
+                contracts
+              ))
+            .catch(err => res.status(400).json(err))
         }
         
-        Contract.findAll({
-            where: {
-                obj: { [Op.like]: '%' + obj + '%' }
-            }
-        }).then(contracts => res.status(200).json(
-            contracts
-          ))
-        .catch(err => res.status(400).json(err))
+        
     }
 }
 
