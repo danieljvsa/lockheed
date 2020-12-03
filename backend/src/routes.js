@@ -4,6 +4,8 @@ const routes = express.Router()
 
 const ProfileController = require('./controllers/ProfileController')
 const ContractsController = require('./controllers/ContractsController')
+const CompaniesController = require('./controllers/CompaniesControllers')
+
 
 
 routes.get('/', ProfileController.index)
@@ -28,5 +30,11 @@ routes.get('/contract-number-2009', ContractsController.search_max_2009_companie
 routes.get('/contract-number-2010', ContractsController.search_max_2010_companies)
 routes.get('/contract-number-2011', ContractsController.search_max_2011_companies)
 
+
+routes.get('/search-top-10-companies', CompaniesController.search_top_10_companies)
+routes.get('/search-top-10-companies-2008', CompaniesController.search_top_10_companies_2008)
+routes.get('/search-top-10-companies-2009', CompaniesController.search_top_10_companies_2009)
+routes.get('/search-top-10-companies-2010', CompaniesController.search_top_10_companies_2010)
+routes.get('/search-top-10-companies-2011', CompaniesController.search_top_10_companies_2010)
 
 module.exports = routes;
