@@ -1,6 +1,10 @@
 # data-analysis-software
 Software to analyze base.gov.pt data
 
+-----------------------------------------------
+Version 0.0.3:
+
+API first's requests were added and now we have simple data already running.
 
 -----------------------------------------------
 Version 0.0.2:
