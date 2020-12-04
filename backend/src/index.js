@@ -4,6 +4,7 @@ const cors = require('cors')
 const routes = require('./routes')
 const app = express()
 const {connection, db} = require('./database/connection')
+require('dotenv').config()
 
 
 // Test DB
@@ -23,6 +24,6 @@ app.use(routes)
 
 
 
-app.listen( 3333,() => {
+app.listen( process.env.PORT || 3333,() => {
     console.log('Listenning to requests on port 3333')
 })
