@@ -2,6 +2,11 @@
 Software to analyze base.gov.pt data
 
 -----------------------------------------------
+Version 0.0.6:
+
+Creating frontend and correction of some bugs.
+
+-----------------------------------------------
 Version 0.0.5:
 
 TOP 10 companies requests were added and now we have simple data already running.
