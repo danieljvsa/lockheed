@@ -1,4 +1,4 @@
-const {connection, db} = require('../database/connection')
+
 const Contract = require('../models/contract')
 const {Op} = require('sequelize')
 

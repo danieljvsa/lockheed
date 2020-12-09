@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {FiPower, FiTrash2} from 'react-icons/fi';
-import { Link, useHistory } from 'react-router-dom';
+import { Link, useHistory, Redirect } from 'react-router-dom';
 
 import api from '../../services/api';
 import './styles.css'
@@ -19,6 +19,30 @@ export default function Profile() {
     const [contract_max_2010, setContract_max_2010] = useState([])
     const [contract_max_2011, setContract_max_2011] = useState([])
     
+    const optionsRoutes = [
+        {
+          value: "/",
+          title: "Home",
+        },
+        {
+          value: "companies",
+          title: "Número de Contratos com empresas",
+        },
+        {
+          value: "companies-top10",
+          title: "TOP 10 - Empresas"
+        },
+        {
+            value: "hospitals-top10",
+            title: "TOP 10 - Hospitais (Mais Investidos)"
+        },
+        {
+            value: "hospitals-top10-minus",
+            title: "TOP 10 - Hospitais (Menos Investidos)"
+        }
+      ];
+    const [selectedOptionRoutes, setSelectedOptionRoutes] = useState(optionsRoutes[0]);
+
 
     function contracts_sum () {
         api.get('contracts-sum').then(res => {
@@ -85,12 +109,29 @@ export default function Profile() {
     })
 
     const history = useHistory()
-
     return (
         <div className="profile-container">
         <header>
           <img src={logoImg} alt="logo"/>
-          
+          <form >
+           
+                <select
+                    className="button"
+                    value={selectedOptionRoutes.title}
+                    onChange={(e) =>
+                    setSelectedOptionRoutes(
+                        optionsRoutes.find(option => (option.value === e.target.value))
+                    )
+                    }
+                >
+                    {optionsRoutes.map((option) => (
+                    <option key={option.value} value={option.value}>
+                        {option.title}
+                    </option>
+                    ))}
+                </select>
+        </form>  
+        <Redirect to={selectedOptionRoutes.value} />
         </header>
         <h1>Custo do Investimento nos Hospitais</h1>
         <ul>
@@ -108,8 +149,8 @@ export default function Profile() {
                 <p>{contract_max.dataPub}</p>  
 
                 <strong>Descrição:</strong>
-                <p>{contract_max.descr}</p>
-
+                <p>{contract_max.descr == '-' || contract_max.descr == 'Ajuste Directo n.º 04/10000153/2010' ? contract_max.obj: contract_max.descr}</p>
+                
                 <strong>Hospital:</strong>
                 <p>{contract_max.adjudicante}</p> 
 
@@ -117,6 +158,7 @@ export default function Profile() {
                 <p>{contract_max.adjudicatario}</p>
 
                 <strong>Valor Contratado:</strong>
+                
                 <p>{Intl.NumberFormat('pt-PT', { style: 'currency', currency: 'EUR'}).format(contract_max.pContr)}</p>
             </li>
             ))}
@@ -134,7 +176,7 @@ export default function Profile() {
                 <p>{contract_max_2008.dataPub}</p>  
 
                 <strong>Descrição:</strong>
-                <p>{contract_max_2008.descr}</p>
+                <p>{contract_max_2008.descr == '-' || contract_max_2008.descr == 'Ajuste Directo n.º 04/10000153/2010' ? contract_max_2008.obj: contract_max_2008.descr}</p>
 
                 <strong>Hospital:</strong>
                 <p>{contract_max_2008.adjudicante}</p> 
@@ -160,7 +202,7 @@ export default function Profile() {
                 <p>{contract_max_2009.dataPub}</p>  
 
                 <strong>Descrição:</strong>
-                <p>{contract_max_2009.descr}</p>
+                <p>{contract_max_2009.descr == '-' || contract_max_2009.descr == 'Ajuste Directo n.º 04/10000153/2010' ? contract_max_2009.obj: contract_max_2009.descr}</p>
 
                 <strong>Hospital:</strong>
                 <p>{contract_max_2009.adjudicante}</p> 
@@ -186,7 +228,7 @@ export default function Profile() {
                 <p>{contract_max_2010.dataPub}</p>  
 
                 <strong>Descrição:</strong>
-                <p>{contract_max_2010.descr}</p>
+                <p>{contract_max_2010.descr == '-' || contract_max_2010.descr == 'Ajuste Directo n.º 04/10000153/2010' ? contract_max_2010.obj: contract_max_2010.descr}</p>
 
                 <strong>Hospital:</strong>
                 <p>{contract_max_2010.adjudicante}</p> 
@@ -212,7 +254,7 @@ export default function Profile() {
                 <p>{contract_max_2011.dataPub}</p>  
 
                 <strong>Descrição:</strong>
-                <p>{contract_max_2011.descr}</p>
+                <p>{contract_max_2011.descr == '-' || contract_max_2011.descr == 'Ajuste Directo n.º 04/10000153/2010' ? contract_max_2011.obj: contract_max_2011.descr}</p>
 
                 <strong>Hospital:</strong>
                 <p>{contract_max_2011.adjudicante}</p> 

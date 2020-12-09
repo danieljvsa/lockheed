@@ -17,6 +17,7 @@
 
 .profile-container header img {
     height: 64px;
+    margin-right: 600px;
 }
 
 .profile-container header a {
@@ -25,15 +26,22 @@
     margin-top: 0;
 }
 
+
+
 .profile-container header button {
-    height: 60px;
-    width: 60px;
+    height: 40px;
+    width: 20px;
     border-radius: 4px;
     border: 1px solid #dcdce6;
     background: transparent;
-    margin-left: 16px;
+    margin-left: auto;
     transition: broder-color 0.2s;
+    margin-top: 0;
 }
+
+
+
+
 
 .profile-container header button:hover{
     border-color: #999;

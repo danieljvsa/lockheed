@@ -1,0 +1,146 @@
+.profile-container{
+    width: 100%;
+    max-width: 1100px;
+    padding: 0 30px;
+    margin: 32px auto;
+}
+
+.profile-container header{
+    display: flex;
+    align-items: center;
+}
+
+.profile-container header span {
+    font-size: 20px;
+    margin-left: 24px;
+}
+
+.profile-container header a img {
+    height: 64px;
+
+}
+
+.profile-container form label {
+    margin-right: 10px; 
+    display: inline-block;
+    margin-top: 20px;
+}
+
+.select {
+    margin-left: 10px; 
+    display: inline-block;
+    margin-bottom: 15px;
+    margin-top: 20px;
+    
+}
+
+
+
+.profile-container header button {
+    height: 40px;
+    width: 20px;
+    border-radius: 4px;
+    border: 1px solid #dcdce6;
+    background: transparent;
+    margin-left: auto;
+    transition: broder-color 0.2s;
+    margin-top: 0;
+}
+
+.profile-container header button:hover{
+    border-color: #999;
+}
+
+.profile-container h1 {
+    margin-top: 80px;
+    margin-bottom: 24px;
+
+}
+
+.profile-container ul {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 24px;
+    list-style: none;
+}
+
+.profile-container ul li {
+    background: #fff;
+    padding: 24px;
+    border-radius: 8px;
+    position: relative;
+}
+
+.profile-container ul li button {
+    position: absolute;
+    right: 24px;
+    top: 24px;
+    border: 0;
+}
+
+.profile-container ul li button:hover{
+    opacity: 0.8;
+}
+
+.profile-container ul li strong {
+    display: block;
+    margin-bottom: 16px;
+    color: #41414d;
+}
+
+.profile-container ul li p + strong {
+    margin-top: 32px;
+}
+
+.profile-container ul li p {
+    color: #737380;
+    line-height: 21px;
+    font-size: 16px;
+}
+
+.select select {
+    font-family: 'Arial';
+    display: inline-block;
+    width: 100%;
+    cursor: pointer;
+    padding: 10px 16px;
+    outline: 0;
+    border: 1px solid #ffffff;
+    border-radius: 0px;
+    background: #E02041;
+    color: #fdfcfc;
+    
+    
+}
+    .select select::-ms-expand {
+        display: none;
+    }
+    .select select:hover,
+    .select select:focus {
+        color: #ffffff;
+        background: E02041;
+    }
+    .select select:disabled {
+        opacity: 0.5;
+        pointer-events: none;
+    }
+.select_arrow {
+position: absolute;
+top: 16px;
+right: 15px;
+width: 0px;
+height: 0px;
+border: solid #fdf4f4;
+border-width: 0 3px 3px 0;
+display: inline-block;
+padding: 3px;
+transform: rotate(45deg);
+-webkit-transform: rotate(45deg);
+}
+.select select:hover ~ .select_arrow,
+.select select:focus ~ .select_arrow {
+border-color: #fbf5f5;
+}
+.select select:disabled ~ .select_arrow {
+border-top-color: #f40c0c;
+}

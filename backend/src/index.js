@@ -3,7 +3,7 @@ const bodyParser = require('body-parser')
 const cors = require('cors')
 const routes = require('./routes')
 const app = express()
-const {connection, db} = require('./database/connection')
+const {db} = require('./database/connection')
 require('dotenv').config()
 
 

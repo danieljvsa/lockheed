@@ -1,7 +1,11 @@
 import React from 'react' 
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 
-import Index from './pages/Index'
+import Investments from './pages/Investments'
+import Companies from './pages/Companies'
+import Contracts from './pages/Contracts'
+import Hospitals from './pages/Hospitals'
+import Hospitals_Low from './pages/Hospitals_Low'
 // eslint-disable-next-line
 {/*import Logon from './pages/logon';
 import Register from './pages/register';
@@ -15,7 +19,11 @@ export default function Routes() {
             <Switch>
                 {/*<Route path="/" exact component={Logon} />
                 <Route path="/register" component={Register} />*/}
-                <Route path="/" component={Index} />
+                <Route path="/" exact component={Investments} />
+                <Route path="/companies" component={Companies} />
+                <Route path="/companies-top10" component={Contracts} />
+                <Route path="/hospitals-top10" component={Hospitals} />
+                <Route path="/hospitals-top10-minus" component={Hospitals_Low} />
                 {/*<Route path="/incidents/new" component={NewIncident} />*/}
             </Switch>
         </BrowserRouter>
