@@ -1,12 +1,10 @@
-import React, {useEffect, useState, useRef} from 'react';
-import {FiPower, FiTrash2} from 'react-icons/fi';
-import { useField } from '@unform/core';
-import { Link, useHistory, Redirect } from 'react-router-dom';
+import React, {useEffect, useState} from 'react';
+import { Link, useHistory } from 'react-router-dom';
 
 import api from '../../services/api';
 import './styles.css'
 
-import logoImg from '../../assets/logo.svg';
+
 
 
   
@@ -37,30 +35,7 @@ export default function Companies() {
       const [selectedOption, setSelectedOption] = useState(options[0]);
       const [companies, setCompanies] = useState([]);
     
-      const optionsRoutes = [
-        {
-          value: "/",
-          title: "Home",
-        },
-        {
-          value: "companies",
-          title: "Número de Contratos com empresas",
-        },
-        {
-          value: "companies-top10",
-          title: "TOP 10 - Empresas"
-        },
-        {
-            value: "hospitals-top10",
-            title: "TOP 10 - Hospitais (Mais Investidos)"
-        },
-        {
-            value: "hospitals-top10-minus",
-            title: "TOP 10 - Hospitais (Menos Investidos)"
-        }
-      ];
-    const [selectedOptionRoutes, setSelectedOptionRoutes] = useState(optionsRoutes[2]);
-
+      
     
     
     
@@ -72,32 +47,15 @@ export default function Companies() {
         })
     })
 
-    //const history = useHistory()
+    const history = useHistory()
 
     return (
         <div className="profile-container">
         <header>
-          <img src={logoImg} alt="logo"/>
-          <form >
-            
-                <select
-                    className="button"
-                    value={selectedOptionRoutes.title}
-                    onChange={(e) =>
-                    setSelectedOptionRoutes(
-                        optionsRoutes.find(option => (option.value === e.target.value))
-                    )
-                    }
-                >
-                    {optionsRoutes.map((option) => (
-                    <option key={option.value} value={option.value}>
-                        {option.title}
-                    </option>
-                    ))}
-                </select>
           
-        </form>  
-        <Redirect to={selectedOptionRoutes.value} />
+        <Link to="/" className="button">Home</Link>
+        
+        
         </header>
         <form align="center">
             <label align="center" >
@@ -120,7 +78,7 @@ export default function Companies() {
                 </select>
             </div>
         </form>
-        <h1>TOP 10 Empresas ({selectedOption.title})</h1>
+        <h1>TOP 10 Empresas - Lucros ({selectedOption.title})</h1>
         <ul>
             {companies.map(companies => (
             <li>
@@ -129,7 +87,7 @@ export default function Companies() {
 
                 <strong>Valor dos Contratos (Total):</strong>
                 <p>{Intl.NumberFormat('pt-PT', { style: 'currency', currency: 'EUR'}).format(companies.sum)}</p>
-                
+                <button type="button" onClick={() => (history.push('/companies/' + (companies.empresa).match(/\((.*)\)/).pop()))}>Detalhes</button>
             </li>
             ))}
         </ul>

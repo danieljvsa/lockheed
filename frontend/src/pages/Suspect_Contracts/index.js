@@ -12,45 +12,53 @@ import './styles.css'
 export default function Companies() {
     const options = [
         {
-          value: "",
-          title: "Todos os anos",
+            value: "",
+            title: "Categorias de contratos",
+            fund: ""
         },
         {
-          value: "-2008",
-          title: "2008",
+          value: "-public_works_contracts",
+          title: "Empreitadas de obras públicas",
+          fund: "Artigo 19.º, alínea d) do Código dos Contratos Públicos"
         },
         {
-          value: "-2009",
-          title: "2009"
+          value: "-acquisition_of_real_state",
+          title: "Aquisição de bens imóveis",
+          fund: "Artigo 20.º, n.º 1, alínea d) do Código dos Contratos Públicos"
         },
         {
-            value: "-2010",
-            title: "2010"
+          value: "-purchasing_services",
+          title: "Aquisição de serviços",
+          fund: "Artigo 20.º, n.º 1, alínea d) do Código dos Contratos Públicos"
         },
         {
-            value: "-2011",
-            title: "2011"
+            value: "-other_contracts",
+            title: "Outros Contratos",
+            fund: "Artigo 21.º, n.º 1, alínea c) do Código dos Contratos Públicos"
+        },
+        {
+            value: "-repeated_contracts",
+            title: "Contratos Repetidos",
+            fund: ""
         }
       ];
       const [selectedOption, setSelectedOption] = useState(options[0]);
       const [contract, setContract] = useState([]);
+      
     
-    let id = useParams();
     
-    async function handleIncident(id){
-        console.log(id.id)
-        const data = {
-            company: id.id
-        }
-        api.post('/contracts/company/', data).then(res => {
+    
+    async function suspect_contracts(){
+        api.get('suspect-contracts' + selectedOption.value).then(res => {
             setContract(res.data)
         })
     }
-    
 
     
+    
     useEffect(() => {
-        handleIncident(id)
+        suspect_contracts()
+
     })
 
     //const history = useHistory()
@@ -83,12 +91,22 @@ export default function Companies() {
                 </select>
                 </div>
         </form>
-        <h1>Empresa </h1>
+        <br/>
+        <br/>
+        <br/>
+        
+
+        <h4 align="center">{selectedOption.fund == "" ? "": "Fundamento: " + selectedOption.fund}</h4>
+        
+        <h1>Contratos Suspeitos ({selectedOption.title})</h1>
         <ul>
         {contract.map(contract => (
             <li>
                 <strong>Data de Publicação:</strong>
                 <p>{contract.dataPub}</p>  
+
+                <strong>Tipo de Contrato:</strong>
+                <p>{contract.tipoCont}</p>
 
                 <strong>Tipo de Procedimento:</strong>
                 <p>{contract.tipoProc}</p>
@@ -99,6 +117,9 @@ export default function Companies() {
                 <strong>Objeto do Contrato:</strong>
                 <p>{contract.obj}</p>
                 
+                <strong>Fundamento:</strong>
+                <p>{contract.fund}</p>
+
                 <strong>Hospital:</strong>
                 <p>{contract.adjudicante}</p> 
 
@@ -106,8 +127,9 @@ export default function Companies() {
                 <p>{contract.adjudicatario}</p>
 
                 <strong>Valor Contratado:</strong>
-                
                 <p>{Intl.NumberFormat('pt-PT', { style: 'currency', currency: 'EUR'}).format(contract.pContr)}</p>
+            
+                
             </li>
             ))}
         </ul>

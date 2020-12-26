@@ -1,75 +1,34 @@
-import React, {useEffect, useState, useRef} from 'react';
-import {FiPower, FiTrash2} from 'react-icons/fi';
-import { useField } from '@unform/core';
-import { Link, useHistory, Redirect } from 'react-router-dom';
+import React, {useEffect, useState} from 'react';
+import { Link, Redirect, useParams } from 'react-router-dom';
 
 import api from '../../services/api';
 import './styles.css'
 
-import logoImg from '../../assets/logo.svg';
+
 
 
   
 
 export default function Companies() {
-    const options = [
-        {
-          value: "",
-          title: "Todos os anos",
-        },
-        {
-          value: "-2008",
-          title: "2008",
-        },
-        {
-          value: "-2009",
-          title: "2009"
-        },
-        {
-            value: "-2010",
-            title: "2010"
-        },
-        {
-            value: "-2011",
-            title: "2011"
+   
+      const [contract, setContract] = useState([]);
+    
+    let id = useParams();
+    
+    async function handleIncident(id){
+        console.log(id.id)
+        const data = {
+            hospital: id.id
         }
-      ];
-      const [selectedOption, setSelectedOption] = useState(options[0]);
-      const [hospitals, setHostpitals] = useState([]);
-      const optionsRoutes = [
-        {
-          value: "/",
-          title: "Home",
-        },
-        {
-          value: "companies",
-          title: "Número de Contratos com empresas",
-        },
-        {
-          value: "companies-top10",
-          title: "TOP 10 - Empresas"
-        },
-        {
-            value: "hospitals-top10",
-            title: "TOP 10 - Hospitais (Mais Investidos)"
-        },
-        {
-            value: "hospitals-top10-minus",
-            title: "TOP 10 - Hospitais (Menos Investidos)"
-        }
-      ];
-    const [selectedOptionRoutes, setSelectedOptionRoutes] = useState(optionsRoutes[3]);
-
-    
-    
-    
+        api.post('/contracts/hospital/', data).then(res => {
+            setContract(res.data)
+        })
+    }
     
 
     
     useEffect(() => {
-        api.get('search-top-10-hospitals' + selectedOption.value).then(res => {
-            setHostpitals(res.data)
-        })
+        handleIncident(id)
     })
 
     //const history = useHistory()
@@ -77,59 +36,36 @@ export default function Companies() {
     return (
         <div className="profile-container">
         <header>
-          <img src={logoImg} alt="logo"/>
-          <form >
-            
-                <select
-                    className="button"
-                    value={selectedOptionRoutes.title}
-                    onChange={(e) =>
-                    setSelectedOptionRoutes(
-                        optionsRoutes.find(option => (option.value === e.target.value))
-                    )
-                    }
-                >
-                    {optionsRoutes.map((option) => (
-                    <option key={option.value} value={option.value}>
-                        {option.title}
-                    </option>
-                    ))}
-                </select>
-            
-        </form>  
-        <Redirect to={selectedOptionRoutes.value} />
+        <Link to="/" className="button">Home</Link>
+         
         </header>
-        <form align="center">
-            <label align="center" >
-                <h3>Pesquisa:</h3>
-            </label>
-            <div className="select">
-                <select
-                    value={selectedOption.title}
-                    onChange={(e) =>
-                    setSelectedOption(
-                        options.find(option => (option.value === e.target.value))
-                    )
-                    }
-                >
-                    {options.map((option) => (
-                    <option key={option.value} value={option.value}>
-                        {option.title}
-                    </option>
-                    ))}
-                </select>
-            </div>
-        </form>
-        <h1>TOP 10 Hospitais ({selectedOption.title} - Mais Investidos)</h1>
+        
+        
+        <h1>Hospital </h1>
         <ul>
-            {hospitals.map(hospitals => (
+        {contract.map(contract => (
             <li>
-                <strong>Nome da Hospital:</strong>
-                <p>{hospitals.hospital}</p>  
+                <strong>Data de Publicação:</strong>
+                <p>{contract.dataPub}</p>  
 
-                <strong>Valor dos Contratos (Total):</strong>
-                <p>{Intl.NumberFormat('pt-PT', { style: 'currency', currency: 'EUR'}).format(hospitals.sum)}</p>
+                <strong>Tipo de Procedimento:</strong>
+                <p>{contract.tipoProc}</p>
+
+                <strong>Descrição:</strong>
+                <p>{contract.descr}</p>
+
+                <strong>Objeto do Contrato:</strong>
+                <p>{contract.obj}</p>
                 
+                <strong>Hospital:</strong>
+                <p>{contract.adjudicante}</p> 
+
+                <strong>Empresa:</strong>
+                <p>{contract.adjudicatario}</p>
+
+                <strong>Valor Contratado:</strong>
+                
+                <p>{Intl.NumberFormat('pt-PT', { style: 'currency', currency: 'EUR'}).format(contract.pContr)}</p>
             </li>
             ))}
         </ul>
