@@ -2,6 +2,11 @@
 Software to analyze base.gov.pt data
 
 -----------------------------------------------
+Version 1.0.0:
+
+Modification to adapt new objective of prof«ject done.
+
+-----------------------------------------------
 Version 0.0.7:
 
 Initial app done (waiting for new orders).
@@ -15,6 +20,7 @@ Creating frontend and correction of some bugs.
 Version 0.0.5:
 
 TOP 10 companies requests were added and now we have simple data already running.
+Website: https://lockheed-frontend.herokuapp.com/
 
 -----------------------------------------------
 Version 0.0.4:
