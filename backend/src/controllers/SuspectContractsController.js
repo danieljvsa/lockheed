@@ -3,7 +3,7 @@ const {db} = require('../database/connection')
 
 module.exports = {
     async public_works_contracts (req,res){
-        let contracts = await db.query("SELECT * FROM `informacao` WHERE `adjudicante` LIKE '%Hospital%' AND `adjudicante` NOT LIKE '%câmara%' AND `dataPub` BETWEEN '2008-01-01' AND '2011-12-31' AND tipoProc LIKE '%Ajuste direto%' AND tipoCont like '%empreitadas de obras públicas%' AND pContr > 30000")
+        let contracts = await db.query("SELECT * FROM `informacao` WHERE `adjudicante` LIKE '%Hospital%' AND `adjudicante` NOT LIKE '%câmara%' AND adjudicante NOT LIKE '%município%' AND `dataPub` BETWEEN '2008-01-01' AND '2011-12-31' AND tipoProc LIKE '%Ajuste direto%' AND tipoCont like '%empreitadas de obras públicas%' AND pContr > 30000")
         
         
 
