@@ -39,6 +39,7 @@ API first's requests were added and now we have simple data already running.
 Version 0.0.2:
 
 It was added library 'sequelize' to the project with the purpose of facilitate the creation of querries.
+
 A simple search engine in index page was added.
 
 -----------------------------------------------
