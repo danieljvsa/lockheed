@@ -34,7 +34,6 @@
 .n{
     display: inline-block;
     width: 10%;
-    margin-right: 0.5%;
 }
 
 .profile-container header button {
@@ -47,15 +46,6 @@
     transition: broder-color 0.2s;
     margin-top: 0;
     padding: 5%;
-}
-
-@media screen and (max-width: 720px) {
- .p{
-     width:100%;
- }
- .l{
-    width:100%;
-}
 }
 
 
