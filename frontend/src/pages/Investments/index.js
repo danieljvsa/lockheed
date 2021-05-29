@@ -74,45 +74,48 @@ export default function Profile() {
     
     return (
         <div className="profile-container">
-        <header >
-        <form >
-            
-                <select
-                    className="button p"
-                    value={selectedOptionRoutes.title}
-                    onChange={(e) =>
-                    setSelectedOptionRoutes(
-                        optionsRoutes.find(option => (option.value === e.target.value))
-                    )
-                    }
-                >
-                    {optionsRoutes.map((option) => (
-                    <option key={option.value} value={option.value}>
-                        {option.title}
-                    </option>
-                    ))}
-                </select>
-                <select
-                    className="button l"
-                    value={selectedOptionRoutes1.title}
-                    onChange={(e) =>
-                    setSelectedOptionRoutes1(
-                        optionsRoutes1.find(option => (option.value === e.target.value))
-                    )
-                    }
-                >
-                    {optionsRoutes1.map((option) => (
-                    <option key={option.value} value={option.value}>
-                        {option.title}
-                    </option>
-                    ))}
-                </select>
-                <Link to="/suspect-contracts" className="button n">Contratos Suspeitos</Link>
+       
+        <form className="form_selcts">
+               
+            <select
+                className="button p"
+                value={selectedOptionRoutes.title}
+                onChange={(e) =>
+                setSelectedOptionRoutes(
+                    optionsRoutes.find(option => (option.value === e.target.value))
+                )
+                }
+            >
+                {optionsRoutes.map((option) => (
+                <option key={option.value} value={option.value}>
+                    {option.title}
+                </option>
+                ))}
+            </select>    
+        
+            <select
+                className="button l"
+                value={selectedOptionRoutes1.title}
+                onChange={(e) =>
+                setSelectedOptionRoutes1(
+                    optionsRoutes1.find(option => (option.value === e.target.value))
+                )
+                }
+            >
+                {optionsRoutes1.map((option) => (
+                <option key={option.value} value={option.value}>
+                    {option.title}
+                </option>
+                ))}
+            </select>
+
+                
+            <Link to="/suspect-contracts" className="button n">Contratos Suspeitos</Link>
         </form>  
         
         <Redirect to={selectedOptionRoutes.value} />
         <Redirect to={selectedOptionRoutes1.value} />
-        </header>
+        
         <form onSubmit={handleSearch}>
             <input placeholder="Pesquise pelo objeto do contrato" value={obj} onChange={e => setObj(e.target.value)} ></input>
             <button className="button" type="submit">Pesquisar</button>

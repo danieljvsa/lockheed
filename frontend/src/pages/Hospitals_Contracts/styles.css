@@ -4,27 +4,19 @@
     padding: 0 30px;
     margin: 32px auto;
 }
+@media screen and (max-width: 767px) {
+    .header a{
+        margin: 0;
+        width: 100%;
 
-.profile-container header{
-    display: flex;
-    align-items: center;
+    }
 }
 
-.profile-container header span {
-    font-size: 20px;
-    margin-left: 24px;
+.header a{
+    margin-left: 80%;
+    width: 10rem;
 }
 
-.profile-container header a img {
-    height: 64px;
-
-}
-
-.profile-container form label {
-    margin-right: 10px; 
-    display: inline-block;
-    margin-top: 20px;
-}
 
 .select {
     margin-left: 10px; 

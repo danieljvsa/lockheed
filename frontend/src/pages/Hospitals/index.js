@@ -35,10 +35,10 @@ export default function Companies() {
 
     return (
         <div className="profile-container">
-        <header>
-        <Link to="/" className="button">Home</Link>
-         
-        </header>
+        <div className="header">
+            <Link to="/" className="button">Home</Link>
+        </div>
+        
         
         
         <h1>Hospital </h1>

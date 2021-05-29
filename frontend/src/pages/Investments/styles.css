@@ -1,6 +1,5 @@
 .profile-container{
     width: 100%;
-    max-width: 1100px;
     padding: 0 30px;
     margin: 32px auto;
 }
@@ -16,26 +15,6 @@
 
 
 
-.l{
-    display: inline-block;
-    width: 30%;
-    margin-bottom: 2%;
-    padding-left: 5%;
-    margin-right: 0.5%;
-}
-
-.p{
-    display: inline-block;
-    width: 30%;
-    padding-left: 5%;
-    margin-right: 0.5%;
-}
-
-.n{
-    display: inline-block;
-    width: 10%;
-}
-
 .profile-container header button {
     height: 40px;
     width: 10px;
@@ -48,7 +27,25 @@
     padding: 5%;
 }
 
+.form_selcts{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 1;
+    margin-bottom: 1rem;
+}
 
+.form_selcts select{
+    margin-right: 1rem;
+    width: 100%;
+    text-align-last:center;
+}
+
+@media screen and (max-width: 767px) {
+    .form_selcts{
+        display: block;
+    }
+}
 
 .profile-container header button:hover{
     border-color: #999;

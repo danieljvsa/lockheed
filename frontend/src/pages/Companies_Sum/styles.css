@@ -5,24 +5,17 @@
     margin: 32px auto;
 }
 
-.profile-container header{
-    display: flex;
-    align-items: center;
+@media screen and (max-width: 767px) {
+    .header a{
+        margin: 0;
+        width: 100%;
+
+    }
 }
 
-.profile-container header span {
-    font-size: 20px;
-    margin-left: 24px;
-}
-
-.profile-container header img {
-    height: 64px;
-}
-
-.profile-container header a {
-    width: 260px;
-    margin-left: auto;
-    margin-top: 0;
+.header a{
+    margin-left: 80%;
+    width: 10rem;
 }
 
 .profile-container header button {

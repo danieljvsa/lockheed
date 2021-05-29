@@ -51,12 +51,10 @@ export default function Companies() {
 
     return (
         <div className="profile-container">
-        <header>
-          
-        <Link to="/" className="button">Home</Link>
+        <div className="header">
+            <Link to="/" className="button">Home</Link>
+        </div>
         
-        
-        </header>
         <form align="center">
             <label align="center" >
                 <h3>Pesquisa:</h3>
