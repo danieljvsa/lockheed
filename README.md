@@ -45,7 +45,7 @@ Além disso, terá que ter uma ligação ao [MySQL](https://dev.mysql.com/downlo
 
 ## 💻 Projeto
 
-Este projecto foi desenvolvivido para investigar contratos suspeitos de fraude do site [Base.gov](https://www.base.gov.pt/base4). 
+Este projecto foi desenvolvido para investigar contratos suspeitos de fraude do site [Base.gov](https://www.base.gov.pt/base4). 
 
 Este é um projeto desenvolvido durante os meses de Dezembro de 2020 e Janeiro de 2021.
 
