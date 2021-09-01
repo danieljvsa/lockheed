@@ -1,54 +1,59 @@
-# data-analysis-software
-Software to analyze base.gov.pt data
+<h1 align="center">
+  Duna
+</h1>
 
------------------------------------------------
-Version 1.0.0:
+<p align="center">
+  <img src="https://img.shields.io/static/v1?label=App&message=Lockheed&color=8257E5&labelColor=000000" alt="Lockheed" />
+  
+  <img src="https://img.shields.io/github/stars/danieljvsa/data-analysis-software?label=stars&message=MIT&color=8257E5&labelColor=000000" alt="Stars">
 
-Modification to adapt new objective of project done.
+  <img  src="https://img.shields.io/static/v1?label=license&message=MIT&color=8257E5&labelColor=000000" alt="License">   
+</p>
 
-Website: https://lockheed-frontend.herokuapp.com/
+## 🧪 Tecnologias
 
-Database structure used in project was added.
+Esse projeto foi desenvolvido com as seguintes tecnologias:
 
------------------------------------------------
-Version 0.0.7:
+- ReactJS
+- NodeJS
+- Sequelize
+- MySQL
 
-Initial app done (waiting for new orders).
+## 🚀 Como executar
 
------------------------------------------------
-Version 0.0.6:
+Clone o projeto e acesse a pasta do mesmo.
 
-Creating frontend and correction of some bugs.
+```bash
+$ git clone https://github.com/danieljvsa/data-analysis-software
+$ cd data-analysis-software
+```
 
------------------------------------------------
-Version 0.0.5:
+```bash
+$ cd backend
+$ npm install
+$ node src/index.js
+```
 
-TOP 10 companies requests were added and now we have simple data already running.
+```bash
+$ cd ..
+$ cd frontend 
+$ npm install
+$ npm start
+```
 
------------------------------------------------
-Version 0.0.4:
+Além disso, terá que ter uma ligação ao [MySQL](https://dev.mysql.com/downloads/workbench/) com a seguinte [base de dados](https://mega.nz/file/IVdUjLaa#mGiu5t00Tp3xD5i-6k0qAAMIhgGEp0iFdYVH2CtkYG4). Não se esqueça de criar um arquivo .env na raiz da pasta backend para indexar os dados de conexão da base de dados.
 
-TOP 10 companies requests were added and now we have simple data already running.
+## 💻 Projeto
 
------------------------------------------------
-Version 0.0.3:
+Este projecto foi desenvolvivido para investigar contratos suspeitos de fraude do site [Base.gov](https://www.base.gov.pt/base4). 
 
-API first's requests were added and now we have simple data already running.
+Este é um projeto desenvolvido durante os meses de Dezembro de 2020 e Janeiro de 2021.
 
------------------------------------------------
-Version 0.0.2:
+## 📝 License
 
-It was added library 'sequelize' to the project with the purpose of facilitate the creation of querries.
+Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE.md) para mais detalhes.
 
-A simple search engine in index page was added.
+---
 
------------------------------------------------
-Version 0.0.1.1:
-
-Addition of basic React app for frontend usage.
-
------------------------------------------------
-Version 0.0.1:
-
-Basic connection with database with 'mysql2' library.
+Feito com 💜 by Daniel Sá 
 
