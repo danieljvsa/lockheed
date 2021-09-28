@@ -5,7 +5,7 @@
 <p align="center">
   <img src="https://img.shields.io/static/v1?label=App&message=Lockheed&color=8257E5&labelColor=000000" alt="Lockheed" />
   
-  <img src="https://img.shields.io/github/stars/danieljvsa/data-analysis-software?label=stars&message=MIT&color=8257E5&labelColor=000000" alt="Stars">
+  <img src="https://img.shields.io/github/stars/danieljvsa/lockheed?label=stars&message=MIT&color=8257E5&labelColor=000000" alt="Stars">
 
   <img  src="https://img.shields.io/static/v1?label=license&message=MIT&color=8257E5&labelColor=000000" alt="License">   
 </p>
@@ -24,8 +24,8 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 Clone o projeto e acesse a pasta do mesmo.
 
 ```bash
-$ git clone https://github.com/danieljvsa/data-analysis-software
-$ cd data-analysis-software
+$ git clone https://github.com/danieljvsa/lockheed
+$ cd lockheed
 ```
 
 ```bash
